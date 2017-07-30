@@ -1,7 +1,7 @@
 /******************/
 /* Business Logic*/
 /******************/
-/* Constructor used to create instances of Contact type */
+/* 1. Constructor used to create instances of Contact type */
 function Contact(first, last) {
 	this.firstName = first;
 	this.lastName = last;
@@ -10,6 +10,13 @@ function Contact(first, last) {
 /* Contact prototype method */
 Contact.prototype.fullName = function() {
 	return this.firstName + " " + this.lastName;
+}
+
+/* 2. Constructor to be pushed to .addresses property of Contact object */
+function Address(street, city, state) {
+	this.street = street;
+	this.city = city;
+	this.state = state;
 }
 
 /******************/
