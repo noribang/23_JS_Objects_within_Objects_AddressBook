@@ -7,7 +7,7 @@ function Contact(first, last) {
 	this.lastName = last;
 	this.addresses = [];
 }
-/* Contact prototype method */
+/* Contact Prototype fullName method */
 Contact.prototype.fullName = function() {
 	return this.firstName + " " + this.lastName;
 }
@@ -17,6 +17,11 @@ function Address(street, city, state) {
 	this.street = street;
 	this.city = city;
 	this.state = state;
+}
+
+/* Address Prototype fullAddress method */
+Address.prototype.fullAddress = function() {
+	return this.street + ", " + this.city + ", " + this.state;
 }
 
 /******************/
@@ -73,7 +78,8 @@ $(document).ready(function() {
 			$('.last-name').text(newContact.lastName);
 			$('ul#addresses').text("");
 			newContact.addresses.forEach(function(address) {
-				$('ul#addresses').append("<li>" + address.street + ", " + address.city + ", " + address.state + "</li>");
+				// $('ul#addresses').append("<li>" + address.street + ", " + address.city + ", " + address.state + "</li>");
+				$('ul#addresses').append("<li>" +  "*" + address.fullAddress() + "</li>");
 			});
 		});
 
