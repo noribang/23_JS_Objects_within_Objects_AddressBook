@@ -7,10 +7,6 @@ function Contact(first, last) {
 	this.lastName = last;
 	this.addresses = [];
 }
-/* Contact Prototype fullName method */
-Contact.prototype.fullName = function() {
-	return this.firstName + " " + this.lastName;
-}
 
 /* 2. Constructor to be pushed to .addresses property of Contact object */
 function Address(street, city, state) {
@@ -19,9 +15,23 @@ function Address(street, city, state) {
 	this.state = state;
 }
 
-/* Address Prototype fullAddress method */
+/* 3. Contact Prototype fullName method */
+Contact.prototype.fullName = function() {
+	return this.firstName + " " + this.lastName;
+}
+
+/* 4. Address Prototype fullAddress method */
 Address.prototype.fullAddress = function() {
 	return this.street + ", " + this.city + ", " + this.state;
+}
+
+/* 5. Reset input fields function preprocessed before document ready */
+function resetFields() {
+	$('input#new-first-name').val("");
+	$('input#new-last-name').val("");
+	$("input.new-street").val("");
+	$("input.new-city").val("");
+	$("input.new-state").val("");
 }
 
 /******************/
@@ -83,10 +93,6 @@ $(document).ready(function() {
 			});
 		});
 
-		$('input#new-first-name').val("");
-		$('input#new-last-name').val("");
-		$("input.new-street").val("");
-		$("input.new-city").val("");
-		$("input.new-state").val("");
+		resetFields();
 	});
 });
